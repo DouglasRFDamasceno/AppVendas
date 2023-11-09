@@ -13,8 +13,3 @@ export const ButtonContainer = styled.TouchableOpacity<ButtonContainerProps>`
   align-items: center;
   ${(props: ButtonContainerProps) => (props.margin ? `margin: ${props.margin}` : '')}
 `;
-
-export const TextContainer = styled.Text`
-  color: white;
-  font-size: 22px;
-`;
