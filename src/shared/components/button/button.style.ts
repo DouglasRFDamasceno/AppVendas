@@ -3,6 +3,7 @@ import { Theme } from '../../themes/themes';
 
 interface ButtonContainerProps {
   margin?: string;
+  disabled?: string;
 }
 
 export const ButtonContainer = styled.TouchableOpacity<ButtonContainerProps>`
@@ -11,11 +12,22 @@ export const ButtonContainer = styled.TouchableOpacity<ButtonContainerProps>`
   border-radius: 4px;
   justify-content: center;
   align-items: center;
-  background-color: ${Theme.colors.primaryTheme.primary};
+  flex-direction: row;
+  ${(props: ButtonContainerProps) =>
+    props.disabled
+      ? 'background-color: #aaa'
+      : `background-color: ${Theme.colors.primaryTheme.primary}`};
   ${(props: ButtonContainerProps) => (props.margin ? `margin: ${props.margin}` : '')};
 `;
 
 export const ButtonSecondary = styled(ButtonContainer)<ButtonContainerProps>`
   ${(props: ButtonContainerProps) => (props.margin ? `margin: ${props.margin}` : '')};
-  background-color: ${Theme.colors.secondaryTheme.secondary};
+  ${(props: ButtonContainerProps) =>
+    props.disabled
+      ? 'background-color: #aaa'
+      : `background-color: ${Theme.colors.secondaryTheme.secondary}`};
+`;
+
+export const ActivityIndicator = styled.ActivityIndicator`
+  padding-left: 16px;
 `;
