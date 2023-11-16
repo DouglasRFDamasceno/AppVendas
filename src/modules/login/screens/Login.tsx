@@ -16,6 +16,7 @@ const Login = () => {
       <ContainerLogin>
         <Input errorMessage="E-mail inválido" placeholder="Digite o e-mail" title="E-mail" />
         <Input
+          secureTextEntry
           errorMessage="Senha inválida"
           placeholder="Digite a senha"
           margin="2% 0 0 0"
