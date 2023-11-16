@@ -11,6 +11,10 @@ export const greenTheme = {
   green20: '#E5FFCC',
 };
 
+export const redTheme = {
+  red80: '#FF3333',
+};
+
 export const primaryTheme = {
   primary: '#0300c2',
 };

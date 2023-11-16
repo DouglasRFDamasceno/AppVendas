@@ -8,7 +8,7 @@ interface TextContainerProps {
 }
 
 export const TextContainer = styled.Text<TextContainerProps>`
-  font-size: 22px;
+  font-size: 30px;
   ${(props: TextContainerProps) => (props.color ? `color: ${props.color};` : '')};
   ${(props: TextContainerProps) => (props.customMargin ? `margin: ${props.customMargin};` : '')};
   font-size: ${(props: TextContainerProps) => props.fontSize};

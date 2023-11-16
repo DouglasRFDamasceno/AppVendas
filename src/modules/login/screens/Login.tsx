@@ -14,13 +14,18 @@ const Login = () => {
   return (
     <View>
       <ContainerLogin>
-        <Input placeholder="Digite o e-mail" title="E-mail" />
-        <Input placeholder="Digite a senha" margin="2% 0 0 0" title="Senha" />
+        <Input errorMessage="E-mail inválido" placeholder="Digite o e-mail" title="E-mail" />
+        <Input
+          errorMessage="Senha inválida"
+          placeholder="Digite a senha"
+          margin="2% 0 0 0"
+          title="Senha"
+        />
         <Button
-          type={Theme.buttons.buttonTheme.primary}
+          type={Theme.buttons.buttonTheme.secondary}
           margin="8%"
           title="Login"
-          disabled
+          // disabled
           onPress={handleLogin}
         />
       </ContainerLogin>

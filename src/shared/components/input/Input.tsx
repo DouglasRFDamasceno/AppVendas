@@ -10,9 +10,10 @@ import { textTypes } from '../text/textTypes';
 interface InputProps extends TextInputProps {
   title?: string;
   margin?: string;
+  errorMessage?: string;
 }
 
-const Input = ({ margin, title, ...props }: InputProps) => {
+const Input = ({ errorMessage, margin, title, ...props }: InputProps) => {
   return (
     <DisplayFlexColumn>
       {title && (
@@ -23,7 +24,15 @@ const Input = ({ margin, title, ...props }: InputProps) => {
           {title}
         </Text>
       )}
-      <ContainerInput {...props} />
+      <ContainerInput isError={!!errorMessage} {...props} />
+      {errorMessage && (
+        <Text
+          customMargin={margin}
+          color={Theme.colors.redTheme.red80}
+          type={textTypes.PARAGRAPH_SMALL_BOLD}>
+          {errorMessage}
+        </Text>
+      )}
     </DisplayFlexColumn>
   );
 };
