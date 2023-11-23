@@ -6,6 +6,11 @@ export const ContainerLogin = styled.View`
   width: 100%;
   justify-content: center;
   align-items: center;
-  background-color: ${Theme.colors.greenTheme.green20};
+  background-color: ${Theme.colors.neutralTheme.white};
   padding: 16px;
+`;
+
+export const ImageLogo = styled.Image`
+  width: 100%;
+  height: 50%;
 `;
