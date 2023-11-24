@@ -12,6 +12,7 @@ const Login = () => {
     email,
     password,
     loading,
+    token,
     errorMessage,
     handleLogin,
     handleOnChangeLogin,
