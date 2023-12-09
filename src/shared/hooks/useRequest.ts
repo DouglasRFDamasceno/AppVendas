@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { setUserAction } from '../../store/reducers/userReducer';
+import { tokenTokenReducer } from '../../store/reducers/tokenReducer/tokenTokenReducer';
+import { userUserReducer } from '../../store/reducers/userReducer/userUserReducer';
 import { ConnectionAPIPost } from '../functions/connection/connectionAPI';
 import { RequestLogin } from '../types/requestLogin';
 import { ReturnLogin } from './returnLogin';
@@ -9,18 +9,18 @@ const IP = '192.168.1.138';
 const PORT = '3030';
 
 export const useRequest = () => {
-  const dispatch = useDispatch();
+  const { setUser } = userUserReducer();
+  const { setToken } = tokenTokenReducer();
   const [loading, setLoading] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>('');
-  const [accessToken, setAccessToken] = useState<string>('');
 
   const authRequest = async (body: RequestLogin) => {
     setLoading(true);
 
     await ConnectionAPIPost<ReturnLogin>(`http://${IP}:${PORT}/login`, body)
       .then((result) => {
-        setAccessToken(result.accessToken);
-        dispatch(setUserAction(result.user));
+        setUser(result.user);
+        setToken(result.accessToken);
       })
       .catch(() => {
         setErrorMessage('Usuário e senha inválida.');
@@ -32,7 +32,6 @@ export const useRequest = () => {
   return {
     loading,
     errorMessage,
-    accessToken,
     setErrorMessage,
     authRequest,
   };
